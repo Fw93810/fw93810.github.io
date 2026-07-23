@@ -1,0 +1,86 @@
+% Wenfeng Wang — academic CV (cc#024, article class, one page, B/W, no photo)
+\documentclass[11pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks,pdftex,
+  pdftitle={Wenfeng Wang --- CV},
+  pdfauthor={Wenfeng Wang}]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-0.5ex}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{1.4ex}{1.0ex}
+\setlist[itemize]{leftmargin=1.2em, topsep=0.2ex, itemsep=0.2ex, parsep=0pt}
+\newcommand{\entry}[2]{\textbf{#1} \hfill #2\par}
+
+\begin{document}
+
+{\LARGE\bfseries Wenfeng Wang}\par
+\vspace{0.6ex}
+Philadelphia, PA \,$\cdot$\, \href{mailto:fw93810@seas.upenn.edu}{fw93810@seas.upenn.edu}
+\,$\cdot$\, +1 (267) 608-9954 \,$\cdot$\, \href{https://fw93810.github.io}{fw93810.github.io}
+
+\section*{EDUCATION}
+
+\entry{University of Pennsylvania --- M.S.E., Electrical Engineering}{Expected May 2027 $\cdot$ GPA 3.72}
+Coursework: Machine Learning (CIS 5200), Graph Neural Networks, Statistics for Data Science
+
+\vspace{0.8ex}
+\entry{Jilin University --- B.S., Physics (Theoretical Physics Track)}{Jul 2024 $\cdot$ GPA 3.80}
+Competition mathematics \& physics training
+
+\section*{RESEARCH}
+
+\entry{Athena: Attribution-Driven Skill Learning for Small LMs}{Designer \& Lead $\cdot$ 2026--present}
+\textit{In collaboration with an industry research group; technical report available on request}
+\begin{itemize}
+\item Designed and built a full pipeline training a 4B model (Qwen3.5) to diagnose its own
+  failures, produce reusable skill entries, and consume them at inference --- with the
+  diagnostic capability itself trained into weights via SFT + RL rather than delegated to a
+  frontier API
+\item Attribution shown trainable and surgically improvable: parse rate
+  34.7\%$\rightarrow$99.7\%, false-production 48.3\%$\rightarrow$0\%, teacher-inherited
+  misdiagnoses eliminated (6$\rightarrow$0)
+\item Built zero-annotation verification: attribution correctness graded by the base model's
+  actual post-update behavior (87.8\% prediction accuracy), no human labels
+\item Discovered skill value is not intrinsic --- $\Delta$ depends on retrieval-competition
+  regime and problem set (same skill: +0.06 $\rightarrow$ $-$0.24 across regimes); full
+  experimental discipline with pre-registered criteria, provenance tracking, and
+  contamination auditing
+\end{itemize}
+
+\vspace{0.8ex}
+\entry{GRPO-TCR Reproduction (RL for LLM Reasoning)}{Independent, self-funded $\cdot$ 2026}
+\begin{itemize}
+\item Independently reproduced agentic RL training on rented 8$\times$A100 infrastructure
+  (verl, FSDP2): Qwen3-4B + GRPO with token-level loss, clip-higher, overlong reward shaping;
+  AIME 2024 Avg@32 +14.1pt over 30 steps
+\end{itemize}
+
+\vspace{0.8ex}
+\entry{Nonlinear Chirp Mode Estimation --- UPenn}{2025--present}
+\begin{itemize}
+\item Two-stage MATLAB pipeline (ridge extraction + ADMM joint refinement) for multi-mode
+  reconstruction under mode crossings and large dynamic range
+\end{itemize}
+
+\vspace{0.8ex}
+\entry{Research Intern --- CV / Model Deployment, UCAS Beijing}{Jul 2024 -- Jan 2025}
+\begin{itemize}
+\item Benchmarked VGG, YOLO, CLIP, BLIP2; built evaluation workflows for deployment-oriented
+  testing
+\end{itemize}
+
+\section*{SKILLS}
+
+PyTorch $\cdot$ vLLM $\cdot$ LoRA fine-tuning $\cdot$ GRPO/RLVR training (verl) $\cdot$
+HuggingFace $\cdot$ Git $\cdot$ Python $\cdot$ MATLAB
+
+\section*{HONORS}
+
+Provincial First Prize, Chinese Physics Olympiad $\cdot$ Yan Jici Scholarship (IOCAS, 2021)
+$\cdot$ GRE 325 (Q170)
+
+\end{document}

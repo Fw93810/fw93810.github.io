@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wenfeng Wang</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Wenfeng Wang</h1>
+
+<p>M.S.E. student in Electrical Engineering at the University of
+Pennsylvania (exp. May 2027). I work on LLM self-improvement:
+training small models to diagnose their own failures, produce
+verified reusable skills, and internalize them &mdash; making the
+capability to learn itself a trainable, measurable object.</p>
+
+<p>Physics background (B.S., theoretical physics track), olympiad
+training, and a conviction that claims about model capability
+should survive pre-registered evaluation.</p>
+
+<p class="contact"><a href="mailto:fw93810@seas.upenn.edu">Email</a> &middot;
+<a href="https://github.com/fw93810">GitHub</a> &middot;
+<a href="cv.pdf">CV (PDF)</a></p>
+
+<h2>Research</h2>
+
+<h3>Athena: Attribution-Driven Skill Learning for Small LMs</h3>
+<p><em>(2026&ndash;present, designer &amp; lead; in collaboration with
+an industry research group)</em></p>
+
+<p>Can a 4B model learn to diagnose why it fails &mdash; and get better
+at diagnosing over time? Athena trains attribution into the
+weights of Qwen3.5-4B: the model reads its own failure traces,
+produces structured skill entries, and each skill must pass a
+causal gate (held-out &Delta; under a specified retrieval regime)
+before entering the library.</p>
+
+<p>Selected results so far:</p>
+<ul>
+<li>Attribution is trainable and surgically improvable: parse
+rate 34.7%&rarr;99.7%, false-production 48.3%&rarr;0%,
+teacher-inherited misdiagnoses eliminated (6&rarr;0) across
+three SFT iterations</li>
+<li>A zero-annotation verification signal: attribution
+correctness graded by the base model&rsquo;s actual behavior
+after weight updates (87.8% prediction accuracy)</li>
+<li>Skill value is not intrinsic: the same skill measured
+&Delta; = +0.06 in one retrieval-competition regime and &minus;0.24 in
+another &mdash; a finding with consequences for how skill
+libraries are evaluated</li>
+<li>Full experimental discipline: pre-registered criteria,
+provenance tracking, contamination auditing; a
+pre-registered anomaly gate caught a silent sampling bug
+before it could contaminate downstream training</li>
+</ul>
+
+<p>Technical report available on request. Workshop paper in
+preparation.</p>
+
+<h3>GRPO-TCR Reproduction</h3>
+<p><em>(2026, independent &amp; self-funded)</em></p>
+
+<p>Reproduced agentic RL training on rented 8&times;A100 (verl, FSDP2):
+Qwen3-4B + GRPO with token-level loss, clip-higher, overlong
+shaping. AIME 2024 Avg@32 +14.1pt over 30 steps.</p>
+
+<h2>Writing</h2>
+
+<p>(Coming soon &mdash; notes on evaluation methodology and lessons
+from building Athena.)</p>
+
+<h2>CV</h2>
+
+<p><a href="cv.pdf">cv.pdf</a></p>
+
+</body>
+</html>
