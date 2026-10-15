@@ -1,79 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Wenfeng Wang</title>
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="Wenfeng Wang — M.S.E. student in Electrical Engineering at the University of Pennsylvania. Physics background; research on world models, physical consistency, and diagnosing learned systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+/* Layout: classic academic page — a quiet identity column on the left, one reading column on the right; stacks on phones. */
+:root {
+  --bg: #fcfcfd;
+  --fg: #1b1f27;
+  --muted: #5b6372;
+  --accent: #1f5a85;
+  --rule: #e2e5ea;
+  --tag: #eef3f8;
+  --display: "Spectral", "Iowan Old Style", "Georgia", serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12151b; --fg: #e5e8ed; --muted: #9aa3b2; --accent: #86b6dc; --rule: #272c35; --tag: #1b2330;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12151b; --fg: #e5e8ed; --muted: #9aa3b2; --accent: #86b6dc; --rule: #272c35; --tag: #1b2330;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+a:hover { border-bottom-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-block: 56px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 860px) {
+  .page { grid-template-columns: 250px minmax(0, 1fr); gap: 64px; padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
+  .id { position: sticky; top: calc(48px + env(safe-area-inset-top, 0px)); align-self: start; }
+}
+
+/* Identity column */
+.id h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.id .cn { font-family: var(--body); font-size: 1rem; color: var(--muted); font-weight: 400; margin-left: 2px; }
+.id .role { color: var(--muted); font-size: 0.95rem; margin: 0 0 20px; }
+.id dl { margin: 0; display: grid; gap: 12px; }
+.id dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.id dd { margin: 2px 0 0; font-size: 0.93rem; overflow-wrap: anywhere; }
+.email { font-family: var(--mono); font-size: 0.85rem; user-select: all; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+
+/* Reading column */
+main { min-width: 0; max-width: 680px; }
+section + section { margin-top: 44px; }
+h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+p { margin: 0 0 14px; }
+.lead { font-size: 1.05rem; }
+
+.interests { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 14px; }
+.interests li { display: grid; gap: 2px; }
+.interests b { font-weight: 600; }
+.interests span { color: var(--muted); font-size: 0.95rem; }
+
+.pub { display: grid; gap: 4px; }
+.pub .title { font-family: var(--display); font-size: 1.12rem; font-weight: 600; line-height: 1.35; text-wrap: balance; }
+.pub .authors { font-size: 0.93rem; color: var(--muted); }
+.pub .authors .me { color: var(--fg); font-weight: 600; }
+.pub .venue { font-size: 0.93rem; }
+.pub .venue i { font-style: italic; }
+.pub .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.tag {
+  font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.02em;
+  padding: 2px 9px; border-radius: 4px; background: var(--tag); border: 1px solid var(--rule);
+}
+.tag.status { color: var(--muted); }
+.pub .summary { font-size: 0.95rem; margin-top: 8px; }
+.earlier { margin-top: 22px; font-size: 0.92rem; color: var(--muted); }
+.earlier ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+
+.rows { display: grid; gap: 20px; }
+.row { display: grid; grid-template-columns: 1fr; gap: 2px; }
+@media (min-width: 560px) { .row { grid-template-columns: minmax(0, 1fr) auto; column-gap: 20px; } .row .when { grid-row: 1; grid-column: 2; text-align: right; } }
+.row .what { font-weight: 600; }
+.row .where { color: var(--muted); font-size: 0.95rem; }
+.row .when { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row .detail { grid-column: 1 / -1; font-size: 0.93rem; margin-top: 4px; }
+
+footer { margin-top: 56px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+
+@media (prefers-reduced-motion: no-preference) { a { transition: border-color .15s ease; } }
+</style>
+
 </head>
 <body>
+<div class="page">
+  <aside class="id">
+    <h1>Wenfeng Wang <span class="cn">王文丰</span></h1>
+    <p class="role">M.S.E. student, Electrical Engineering<br>University of Pennsylvania</p>
+    <dl>
+      <div>
+        <dt>Email</dt>
+        <dd><span class="email">fw93810@engineering.upenn.edu</span></dd>
+      </div>
+      <div>
+        <dt>Links</dt>
+        <dd class="links">
+          <a href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+          <a href="https://arxiv.org/abs/2610.16725" target="_blank" rel="noopener">arXiv paper</a>
+        </dd>
+      </div>
+      <div>
+        <dt>Status</dt>
+        <dd>Graduating May 2027 · open to PhD and research positions</dd>
+      </div>
+    </dl>
+  </aside>
 
-<h1>Wenfeng Wang</h1>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">I am a master's student in Electrical Engineering at the University of Pennsylvania, graduating in May 2027. I studied physics as an undergraduate at Jilin University.</p>
+      <p>My research so far has covered LLM agents and computer vision. My first-author paper diagnoses why LLM agents fail, using their execution trajectories, and checks whether each fix reaches the agent, changes its behavior, and improves the outcome. Before that, at the Chinese Academy of Sciences, I studied how to evaluate text-to-image generation.</p>
+    </section>
 
-<p>M.S.E. student in Electrical Engineering at the University of
-Pennsylvania (exp. May 2027). I work on LLM self-improvement:
-training small models to diagnose their own failures, produce
-verified reusable skills, and internalize them &mdash; making the
-capability to learn itself a trainable, measurable object.</p>
+    <section id="research">
+      <h2>Research interests</h2>
+      <p>I am looking for a long-term direction where a physics background and machine learning experience reinforce each other. The questions I keep returning to are how models represent the rules of the world they act in, and how we can tell whether they have actually learned them.</p>
+      <ul class="interests">
+        <li><b>LLM agents</b><span>Diagnosing failures from execution trajectories, and validating fixes beyond the final score.</span></li>
+        <li><b>Computer vision and generative models</b><span>Evaluating what image and video models get right and wrong, including world models.</span></li>
+        <li><b>Physics and machine learning</b><span>Combining physical models with data-driven methods, and asking how much physical structure a model needs.</span></li>
+      </ul>
+    </section>
 
-<p>Physics background (B.S., theoretical physics track), olympiad
-training, and a conviction that claims about model capability
-should survive pre-registered evaluation.</p>
+    <section id="publications">
+      <h2>Publications</h2>
+      <article class="pub">
+        <div class="title"><a href="https://arxiv.org/abs/2610.16725" target="_blank" rel="noopener">Trace-to-Architecture: Capability Bottleneck Diagnosis for Harness Revision</a></div>
+        <div class="authors"><span class="me">Wenfeng Wang</span>, Jianrui Shi, Mingang Guo, Jiayuan Ma, Yuqi Lu, Jiajun Sun, Guojiang Zhao, Jing Li</div>
+        <div class="venue"><i>arXiv preprint</i> arXiv:2610.16725, 2026</div>
+        <div class="tags"><span class="tag status">Under review · ACL Rolling Review</span><span class="tag">ALFWorld</span><span class="tag">ScienceWorld</span><span class="tag">AppWorld</span></div>
+        <p class="summary">A framework that uses execution trajectories to decide what to change in an LLM agent's harness when it fails, and when those changes should apply. A development agent diagnoses failures with evidence from successful and failed tasks, revises the corresponding components, and checks that target tasks improve, successful tasks stay successful, and the edits are actually triggered. T2A achieves the highest aggregate score for all three evaluated task agents, exceeding their strongest baselines by 6.2 to 30.3 points.</p>
+      </article>
+      <div class="earlier">
+        Earlier undergraduate work (accepted for conference proceedings, 2023; not yet published):
+        <ul>
+          <li>The Design and Optimization for 4-Bit Absolute Value Comparator in Voice Signal Processing</li>
+          <li>The Introduction of Design and Research about PeLED</li>
+        </ul>
+      </div>
+    </section>
 
-<p class="contact"><a href="mailto:fw93810@seas.upenn.edu">Email</a> &middot;
-<a href="https://github.com/fw93810">GitHub</a> &middot;
-<a href="cv.pdf">CV (PDF)</a></p>
+    <section id="experience">
+      <h2>Research experience</h2>
+      <div class="rows">
+        <div class="row">
+          <div class="what">Trace-to-Architecture (first author)</div>
+          <div class="when">2026 – present</div>
+          <div class="where">Diagnosis-driven revision of LLM agent systems</div>
+        </div>
+        <div class="row">
+          <div class="what">Research Intern</div>
+          <div class="when">2024 – 2025</div>
+          <div class="where">Institute of Microelectronics, Chinese Academy of Sciences, Beijing</div>
+          <div class="detail">Studied automatic evaluation of text-to-image generation (CLIPScore, VQAScore, BLIP-2), and explored a 3D-aware evaluation dimension that feeds text, image, and 3D tokens jointly into a language model to assess spatial relations between objects.</div>
+        </div>
+      </div>
+    </section>
 
-<h2>Research</h2>
+    <section id="education">
+      <h2>Education</h2>
+      <div class="rows">
+        <div class="row">
+          <div class="what">University of Pennsylvania</div>
+          <div class="when">2025 – 2027</div>
+          <div class="where">M.S.E. in Electrical Engineering (expected May 2027)</div>
+        </div>
+        <div class="row">
+          <div class="what">Jilin University</div>
+          <div class="when">2020 – 2024</div>
+          <div class="where">B.S. in Physics</div>
+        </div>
+      </div>
+    </section>
 
-<h3>Athena: Attribution-Driven Skill Learning for Small LMs</h3>
-<p><em>(2026&ndash;present, designer &amp; lead; in collaboration with
-an industry research group)</em></p>
-
-<p>Can a 4B model learn to diagnose why it fails &mdash; and get better
-at diagnosing over time? Athena trains attribution into the
-weights of Qwen3.5-4B: the model reads its own failure traces,
-produces structured skill entries, and each skill must pass a
-causal gate (held-out &Delta; under a specified retrieval regime)
-before entering the library.</p>
-
-<p>Selected results so far:</p>
-<ul>
-<li>Attribution is trainable and surgically improvable: parse
-rate 34.7%&rarr;99.7%, false-production 48.3%&rarr;0%,
-teacher-inherited misdiagnoses eliminated (6&rarr;0) across
-three SFT iterations</li>
-<li>A zero-annotation verification signal: attribution
-correctness graded by the base model&rsquo;s actual behavior
-after weight updates (87.8% prediction accuracy)</li>
-<li>Skill value is not intrinsic: the same skill measured
-&Delta; = +0.06 in one retrieval-competition regime and &minus;0.24 in
-another &mdash; a finding with consequences for how skill
-libraries are evaluated</li>
-<li>Full experimental discipline: pre-registered criteria,
-provenance tracking, contamination auditing; a
-pre-registered anomaly gate caught a silent sampling bug
-before it could contaminate downstream training</li>
-</ul>
-
-<p>Technical report available on request. Workshop paper in
-preparation.</p>
-
-<h3>GRPO-TCR Reproduction</h3>
-<p><em>(2026, independent &amp; self-funded)</em></p>
-
-<p>Reproduced agentic RL training on rented 8&times;A100 (verl, FSDP2):
-Qwen3-4B + GRPO with token-level loss, clip-higher, overlong
-shaping. AIME 2024 Avg@32 +14.1pt over 30 steps.</p>
-
-<h2>Writing</h2>
-
-<p>(Coming soon &mdash; notes on evaluation methodology and lessons
-from building Athena.)</p>
-
-<h2>CV</h2>
-
-<p><a href="cv.pdf">cv.pdf</a></p>
+    <footer>Last updated October 2026</footer>
+  </main>
+</div>
 
 </body>
 </html>
