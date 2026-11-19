@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Wenfeng Wang</title>
-<meta name="description" content="Wenfeng Wang — M.S.E. student in Electrical Engineering at the University of Pennsylvania. Physics background; research on world models, physical consistency, and diagnosing learned systems.">
+<meta name="description" content="Wenfeng Wang — M.S.E. student at the University of Pennsylvania. Research on LLM agents, online formalization, reasoning, verification, evaluation, and NLP systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -158,17 +158,17 @@ footer { margin-top: 56px; font-family: var(--mono); font-size: 0.75rem; color: 
     <section id="about">
       <h2>About</h2>
       <p class="lead">I am a master's student in Electrical Engineering at the University of Pennsylvania, graduating in May 2027. I studied physics as an undergraduate at Jilin University.</p>
-      <p>My research so far has covered LLM agents, speech and language evaluation, and computer vision. My first-author paper diagnoses why LLM agents fail, using their execution trajectories, and checks whether each fix reaches the agent, changes its behavior, and improves the outcome. I also ran an independent evaluation of speech recognition and LLM note writing for clinical documentation. Before that, at the University of Chinese Academy of Sciences, I studied how to evaluate text-to-image generation.</p>
+      <p>My research focuses on LLM agents and NLP, with an emphasis on reasoning, verification, and evaluation. At Drexel University's Haz Lab, I am developing a benchmark for online formalization: how agents construct, reuse, and revise executable rules as natural-language requests evolve. My first-author paper, Trace-to-Architecture, diagnoses agent failures from execution trajectories and validates harness revisions. I have also studied speech recognition and LLM-generated clinical notes, and previously worked on text-to-image evaluation at the University of Chinese Academy of Sciences.</p>
     </section>
 
     <section id="research">
       <h2>Research interests</h2>
-      <p>I am looking for a long-term direction where a physics background and machine learning experience reinforce each other. The questions I keep returning to are how models represent the rules of the world they act in, and how we can tell whether they have actually learned them.</p>
+      <p>I study how language-model agents reason about tasks, turn instructions into executable rules, and adapt as requirements change. I am particularly interested in evaluations that reveal why an agent succeeds or fails, and whether an improvement generalizes while preserving previously correct behavior.</p>
       <ul class="interests">
-        <li><b>LLM agents</b><span>Diagnosing failures from execution trajectories, and validating fixes beyond the final score.</span></li>
-        <li><b>Speech and language evaluation</b><span>Measuring what errors in one stage of a pipeline cost downstream, e.g. how ASR mistakes change a clinical note.</span></li>
-        <li><b>Computer vision and generative models</b><span>Evaluating what image and video models get right and wrong, including world models.</span></li>
-        <li><b>Physics and machine learning</b><span>Combining physical models with data-driven methods, and asking how much physical structure a model needs.</span></li>
+        <li><b>LLM agents and adaptation</b><span>Diagnosing capability bottlenecks from execution trajectories and guiding evidence-based harness revisions.</span></li>
+        <li><b>Online formalization</b><span>Constructing, reusing, and revising executable rule specifications across evolving request streams.</span></li>
+        <li><b>Reasoning, verification, and evaluation</b><span>Designing benchmarks and execution-based semantic evaluations for rule fidelity, generalization, and preservation of correct behavior.</span></li>
+        <li><b>NLP systems</b><span>Understanding how errors propagate through language and speech pipelines, including ASR and LLM-generated clinical notes.</span></li>
       </ul>
     </section>
 
@@ -185,12 +185,20 @@ footer { margin-top: 56px; font-family: var(--mono); font-size: 0.75rem; color: 
 
     <section id="projects">
       <h2>Projects</h2>
+      <div class="rows">
+      <article class="pub">
+        <div class="title">Online Formalization of Evolving Natural-Language Requests</div>
+        <div class="venue">Haz Lab, Drexel University · with Prof. Li (Harry) Zhang · October 2026 – present</div>
+        <div class="tags"><span class="tag">Benchmark</span><span class="tag">Semantic evaluation</span><span class="tag">Python / CEL</span></div>
+        <p class="summary">I am developing a benchmark to investigate how LLM agents construct, reuse, and revise executable rule specifications over time. I designed multi-domain request streams with rule changes, exceptions, and recurring task patterns, together with execution-based semantic evaluations of rule fidelity, generalization, and preservation of previously established behavior. I implemented evaluation pipelines for Python and CEL specifications and conducted controlled experiments with Qwen3.5-9B and 27B to analyze formalization accuracy, program evolution, and computational cost.</p>
+      </article>
       <article class="pub">
         <div class="title"><a href="https://github.com/Fw93810/medical-asr-eval" target="_blank" rel="noopener">Listening or writing? Where clinical note generation loses information</a></div>
         <div class="venue">Independent project, 2026 · implemented with Claude Code</div>
         <div class="tags"><span class="tag">ASR</span><span class="tag">LLM evaluation</span><span class="tag">PriMock57</span></div>
         <p class="summary">An evaluation of open-weight speech recognition and local LLM note writing on mock GP consultations, asking how much each stage costs the final note. In quiet audio, the choice of note-writing model moves fact recall by 8&ndash;12 points while ASR errors move it by 1&ndash;3; in 0&nbsp;dB speech babble, the ASR's cost catches up. Word error rate does not predict note quality, and averages hide dangerous single errors such as a negated answer turning into its opposite.</p>
       </article>
+      </div>
     </section>
 
     <section id="experience">
@@ -198,13 +206,13 @@ footer { margin-top: 56px; font-family: var(--mono); font-size: 0.75rem; color: 
       <div class="rows">
         <div class="row">
           <div class="what">Research Volunteer, Haz Lab</div>
-          <div class="when">2026 – present</div>
+          <div class="when">Oct 2026 – present</div>
           <div class="where">Drexel University, with Prof. Li (Harry) Zhang</div>
-          <div class="detail">Studying when LLM agents should compile recurring requests into reusable programs (formalization).</div>
+          <div class="detail">Online Formalization: benchmark design, execution-based semantic evaluation, and controlled Python/CEL experiments for evolving request streams.</div>
         </div>
         <div class="row">
           <div class="what">Trace-to-Architecture (first author)</div>
-          <div class="when">2026 – present</div>
+          <div class="when">Jul – Oct 2026</div>
           <div class="where">Diagnosis-driven revision of LLM agent systems</div>
         </div>
         <div class="row">
@@ -232,7 +240,7 @@ footer { margin-top: 56px; font-family: var(--mono); font-size: 0.75rem; color: 
       </div>
     </section>
 
-    <footer>Last updated October 31, 2026</footer>
+    <footer>Last updated November 19, 2026</footer>
   </main>
 </div>
 

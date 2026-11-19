@@ -12,14 +12,10 @@
 \definecolor{accent}{RGB}{20,50,100}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\linespread{1.03}
-
+\linespread{1.00}
 \titleformat{\section}{\color{accent}\bfseries\large\scshape}{}{0pt}{}[\vspace{-1.2ex}\color{accent}\rule{\linewidth}{0.6pt}]
-\titlespacing*{\section}{0pt}{0.9ex}{0.2ex}
-
+\titlespacing*{\section}{0pt}{0.7ex}{0.2ex}
 \setlist[itemize]{leftmargin=1.2em,itemsep=0.15ex,topsep=0.2ex,parsep=0pt,label={\small\textbullet}}
-
-% \entry{Left bold}{Right}{Left italic}{Right italic}
 \newcommand{\entry}[4]{%
   \begin{tabularx}{\linewidth}{@{}X r@{}}
     \textbf{#1} & #2 \\
@@ -27,65 +23,61 @@
   \end{tabularx}\vspace{-0.2ex}}
 
 \begin{document}
-
 \begin{center}
   {\LARGE\bfseries Wenfeng Wang}\\[0.6ex]
-  Philadelphia, PA \;$\cdot$\; \href{mailto:fw93810@engineering.upenn.edu}{fw93810@engineering.upenn.edu} \;$\cdot$\; \href{https://fw93810.github.io}{fw93810.github.io} \;$\cdot$\; \href{https://github.com/Fw93810}{github.com/Fw93810}
+  Philadelphia, PA \;$\cdot$\; \href{mailto:fw93810@engineering.upenn.edu}{fw93810@engineering.upenn.edu} \;$\cdot$\; \href{https://fw93810.github.io}{fw93810.github.io} \;$\cdot$\; \href{https://github.com/Fw93810}{github.com/Fw93810}\\[0.5ex]
+  {\small\textbf{Research interests:} LLM agents; reasoning, verification \& evaluation; online formalization; NLP systems}
 \end{center}
 \vspace{-1ex}
 
 \section{Education}
-\entry{University of Pennsylvania}{Philadelphia, PA}{M.S.E.\ in Electrical Engineering \quad GPA: 3.72/4.00}{Aug 2025 -- May 2027 (expected)}
+\entry{University of Pennsylvania}{Aug 2025 -- May 2027 (expected)}{M.S.E.\ in Electrical Engineering \quad GPA: 3.72/4.00}{}
 \begin{itemize}
-  \item Coursework: Machine Learning, Graph Neural Networks, Statistics for Data Science, Digital Integrated Circuits \& VLSI, Artificial Intelligence*, Linear Systems Theory* \hfill (*in progress)
+  \item Relevant coursework: Machine Learning, Graph Neural Networks, Statistics for Data Science, Digital Integrated Circuits and VLSI; Artificial Intelligence (in progress).
 \end{itemize}
 \vspace{0.4ex}
-\entry{Jilin University}{Changchun, China}{B.S.\ in Physics \quad GPA: 3.80/4.00}{Sep 2020 -- Jul 2024}
+\entry{Jilin University}{Sep 2020 -- Jun 2024}{B.S.\ in Physics \quad GPA: 3.80/4.00}{}
 \begin{itemize}
-  \item Coursework: Electrodynamics, Quantum Mechanics, Thermal Physics, Mathematical Analysis, Linear Algebra, Probability
+  \item Relevant coursework: Mathematical Analysis (Honors), Linear Algebra, Probability and Statistics, Mathematical Methods of Physics, Computational Physics, Quantum Mechanics, Thermodynamics and Statistical Physics, Electronic Circuits.
 \end{itemize}
 
-\section{Publications}
-\begin{itemize}[leftmargin=1.2em,itemsep=0.3ex,topsep=0.2ex]
-  \item \textbf{Wenfeng Wang}, Jianrui Shi, Mingang Guo, Jiayuan Ma, Yuqi Lu, Jiajun Sun, Guojiang Zhao, Jing Li.
-    Trace-to-Architecture: Capability Bottleneck Diagnosis for Harness Revision.
-    \textit{arXiv preprint} \href{https://arxiv.org/abs/2610.16725}{\underline{arXiv:2610.16725}}, 2026. Under review at ACL Rolling Review.
-\end{itemize}
+\section{Publication}
+\textbf{Wenfeng Wang} et al.\ ``Trace-to-Architecture: Capability Bottleneck Diagnosis for Harness Revision.''\\
+\href{https://arxiv.org/abs/2610.16725}{\underline{arXiv:2610.16725}} \;$\cdot$\; Under review at ACL Rolling Review (ARR).
 
 \section{Research Experience}
-\entry{Haz Lab, Drexel University}{Philadelphia, PA}{Research Volunteer, with Prof.\ Li (Harry) Zhang}{Oct 2026 -- present}
+\entry{Haz Lab, Drexel University}{Oct 2026 -- present}{Research Volunteer, with Prof.\ Li (Harry) Zhang}{}
 \begin{itemize}
-  \item Studying when LLM agents should compile recurring requests into reusable programs (formalization); surveyed about 100 related works on skill libraries, program caching, and agent memory.
+  \item Developing a benchmark for \textbf{online formalization of evolving natural-language requests}: how LLM agents construct, reuse, and revise executable rule specifications over time.
+  \item Designed multi-domain request streams with rule changes, exceptions, and recurring task patterns, alongside \textbf{execution-based semantic evaluations} of rule fidelity, generalization, and preservation of previously established behavior.
+  \item Implemented evaluation pipelines for \textbf{Python and CEL} specifications; conducted controlled experiments with Qwen3.5-9B and 27B to analyze formalization accuracy, program evolution, and computational cost.
 \end{itemize}
 \vspace{0.4ex}
-\entry{Trace-to-Architecture: Capability Bottleneck Diagnosis for Harness Revision}{2026 -- present}{First author}{}
+\entry{Listening or Writing? ASR Errors in LLM-Generated Clinical Notes}{Oct 2026 -- present}{Independent project}{\href{https://github.com/Fw93810/medical-asr-eval}{Code: medical-asr-eval}}
 \begin{itemize}
-  \item Proposed T2A, a framework that uses execution trajectories to decide what to change in an LLM agent's harness when it fails, and when those changes should apply.
-  \item Built tooling that groups trajectories by observable features, letting a development agent diagnose failures with evidence from both successful and failed tasks.
-  \item Designed validation that checks not only whether target tasks improve, but also whether selected successful tasks stay successful and whether the edits are actually triggered.
-  \item Across ALFWorld, ScienceWorld, and AppWorld, achieved the highest aggregate score for all three task agents, exceeding the strongest baselines by 6.2--30.3 points; integrating T2A's diagnosis and validation into Meta-Harness raised its mean ScienceWorld score by 21.6 points.
+  \item Evaluated six ASR systems on 47 held-out simulated clinical consultations; built a 4-source $\times$ 3-note-writer grid on 25 consultations (300 notes), with blinded fact-level scoring and consultation-level paired bootstrap.
+  \item Measured a +12.1-point stated-fact recall difference between two note writers on human transcripts; under 0\,dB synthetic babble, ASR-associated losses were about 14 points. Traced negation errors and overlapping-speech deletions across transcription and note generation.
 \end{itemize}
 \vspace{0.4ex}
-\entry{Listening or Writing? Speech Recognition for Clinical Notes}{2026}{Independent project; implemented with Claude Code}{\href{https://github.com/Fw93810/medical-asr-eval}{github.com/Fw93810/medical-asr-eval}}
+\entry{Trace-to-Architecture (T2A)}{Jul 2026 -- Oct 2026}{Independent collaborative research; first author}{}
 \begin{itemize}
-  \item Evaluated six open-weight ASR models and three local LLM note writers on PriMock57 mock consultations with a blinded fact-level judge; in quiet audio the note writer moved fact recall by 8--12 points versus 1--3 for ASR errors, while 0\,dB babble made the ASR's cost comparable.
+  \item Led project design, implementation, experimental evaluation, analysis, and writing of a framework that diagnoses LLM-agent bottlenecks from execution trajectories and guides harness revisions without updating model weights.
+  \item Evaluated three task models on ALFWorld, ScienceWorld, and AppWorld; achieved top aggregate scores among compared baselines (gains of 6.2--30.3 points). A controlled revision-instruction comparison improved mean ScienceWorld score by 21.6 points.
 \end{itemize}
 \vspace{0.4ex}
-\entry{University of Chinese Academy of Sciences}{Beijing, China}{Research Intern}{Jul 2024 -- Aug 2025}
+\entry{University of Chinese Academy of Sciences}{Jul 2024 -- Aug 2025}{Research Intern}{}
 \begin{itemize}
-  \item Studied automatic evaluation of text-to-image generation (CLIPScore, VQAScore, BLIP-2), focusing on how well metrics capture spatial relations between objects.
-  \item Explored a 3D-aware evaluation dimension: recovered scene structure with monocular 3D reconstruction and fed text, image, and 3D tokens jointly into a language model to assess spatial orientation and agent--patient interactions.
-  \item Reproduced and deployed vision and generation models (VGG16/19, YOLOv5, Omost) in PyTorch.
+  \item Trained and reproduced vision models in PyTorch (VGG16/19, YOLOv5, Omost); investigated whether CLIPScore, VQAScore, and BLIP-2 capture spatial relations in image-generation evaluation.
 \end{itemize}
-\vspace{0.4ex}
-\entry{Introduction to VLSI Research Program}{Remote}{Supervised by Prof.\ Dejan Markovi\'c, UCLA}{Jul 2023 -- Aug 2023}
-\vspace{0.4ex}
-\entry{Nanoelectronics, Optoelectronics and AI Research Seminar}{Remote}{Supervised by Prof.\ Deep Jariwala, University of Pennsylvania}{Feb 2023 -- Apr 2023}
 
-\section{Awards}
-Jilin University Scholarships, Second Prize (2022) and Third Prize (2020); Yan Jici Scholarship, Institute of Physics, Chinese Academy of Sciences (2021)
+\section{Selected Technical Projects}
+\begin{itemize}
+  \item \textbf{STT-RAM architecture exploration (Penn, 2026):} Swept device and organization parameters for a 16\,MB STT-RAM cache with NVSim, analyzing area, latency, and read energy--delay tradeoffs (course project).
+  \item \textbf{Earlier hardware projects:} 4-bit comparator for voice-signal preprocessing (UCLA VLSI program, 2023); nanoelectronics seminar (Penn, 2023).
+\end{itemize}
 
-\section{Skills}
-\textbf{Programming:} Python, PyTorch, C, LaTeX \qquad \textbf{Languages:} Chinese (native), English (fluent)
-
+\section{Honors and Skills}
+\textbf{Honors:} First Prize, Hunan Province, Chinese Physics Olympiad (2019); Yan Jici Scholarship (2021); Jilin University Scholarships (2020, 2022).\\
+\textbf{Programming \& tools:} Python, PyTorch, NumPy, Hugging Face Transformers, MATLAB, C; LLM APIs, model evaluation, ASR toolchains, GPU experimentation.\\
+\textbf{Languages:} Chinese (native); English (fluent).
 \end{document}
